@@ -1,0 +1,605 @@
+<!--
+
+╭━━━┳╮╱╭┳━━━┳━━━┳━━━━┳╮╱╭┳━━━┳━╮╭━┳━━━┳━━━╮
+┃╭━╮┃┃╱┃┃╭━━┫╭━╮┃╭╮╭╮┃┃╱┃┃╭━━┫┃╰╯┃┃╭━━┫╭━╮┃
+┃╰━━┫╰━╯┃╰━━┫┃╱┃┣╯┃┃╰┫╰━╯┃╰━━┫╭╮╭╮┃╰━━┫╰━━╮
+╰━━╮┃╭━╮┃╭━━┫╰━╯┃╱┃┃╱┃╭━╮┃╭━━┫┃┃┃┃┃╭━━┻━━╮┃
+┃╰━╯┃┃╱┃┃╰━━┫╭━╮┃╱┃┃╱┃┃╱┃┃╰━━┫┃┃┃┃┃╰━━┫╰━╯┃
+╰━━━┻╯╱╰┻━━━┻╯╱╰╯╱╰╯╱╰╯╱╰┻━━━┻╯╰╯╰┻━━━┻━━━╯
+
+Tags page ⎾Foreword⏌ by sheathemes @ tumblr
+
+- TERMS -
+
+I. Do NOT remove my credit from the index page. Keep it exactly where it is
+II. Do NOT take any part of my code to use for your personal designs
+III. Do NOT claim any part of my code as your own
+IV. NO redistrubuting of any of my code
+V. Editing is allowed. As long as it's NOT being claimed as your own
+ 
+CREDITS
+ 
+> Style-my-Tootips: http://manos.malihu.gr/style-my-tooltips-jquery-plugin/
+
+> Smoothscroll script: https://cdnjs.com/libraries/smoothscroll
+
+> Masonry script: https://masonry.desandro.com/ 
+
+!-->
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ 
+<head>
+
+<!--Custom Fonts-->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Dosis:300,400,500,600,700" rel="stylesheet">
+<!--Custom Fonts-->
+ 
+<!--Homelinks Icons-->
+<link rel="stylesheet" href="http://static.tumblr.com/i5s2zks/6kOohwlux/pe-icon-7-stroke.css">
+<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+<link href="//dl.dropbox.com/s/50g6fbds3rh4m0j/saturnicons.css" rel="stylesheet">
+<!--Homelinks Icons-->
+ 
+    <title>{Title}</title>
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="altertnate" type="application/rss+xml" href="{RSS}">
+    <meta http-equiv="x-dns-prefetch-control" content="off"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.6/SmoothScroll.min.js"></script>
+
+<style type="text/css">
+ 
+/*----------FADE-IN ANIMATION----------*/
+ 
+@keyframes fadein {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+ 
+@-moz-keyframes fadein { /* Firefox */
+    from {opacity:0;}
+    to {opacity:1;}
+}
+ 
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {opacity:0;}
+    to {opacity:1;}
+}
+ 
+@-o-keyframes fadein { /* Opera */
+    from {opacity:0;}
+    to {opacity: 1;}
+}
+ 
+/*----------TUMBLR CONTROLS----------*/
+ 
+iframe#tumblr_controls, .iframe-controls--desktop {
+    right: 10px !important;
+    top: 25px !important;
+    position: fixed !important;
+    z-index: 99999999999999999999 !important;
+    -webkit-filter: invert(100%);
+    -moz-filter: invert(100%);
+    -o-filter: invert(100%);
+    -webkit-transition: opacity 0.4s linear;opacity: 0.4;
+    -webkit-transition: all 0.8s ease-out;
+    -moz-transition: all 0.8s ease-out;
+    transition: all 0.8s ease-out;
+    display: none;
+}
+ 
+/*----------SCROLLBAR----------*/
+ 
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+::-webkit-scrollbar-thumb {
+    background:  #D0E0EB; /*change the color of the scrollbar*/
+    border: 2px solid #fdfdfd; /*change the color of the scrollbar background*/
+}
+ 
+::-webkit-scrollbar-track {
+    background: transparent;
+    border: 8px solid transparent;
+}
+ 
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+ 
+ 
+/*----------TOOLTIPS----------*/
+ 
+#s-m-t-tooltip {
+    max-width:300px;
+    padding:2px 5px;
+    margin: -20px 7px -2px 20px;
+    color: #888;  /*change the background color of the tooltip*/
+    font-size:9px;
+    letter-spacing:2px;
+    text-transform:lowercase;
+    background-color: #fff;  /*change the text color of the tooltip*/
+    z-index:999999999999999999999999999999999999;
+    border: 1px solid #D0E0EB;  /*change the border color of the tooltip*/
+}
+ 
+/*----------TEXT SELECTION----------*/
+::selection {
+    background:  #D0E0EB; /*change the color of the text selection background*/
+    color: #fff; /*change the color of the text selection*/
+}
+ 
+::-moz-selection {
+    background:  #D0E0EB; /*change the color of the text selection background*/
+    color: #fff; /*change the color of the text selection*/
+}
+ 
+::-webkit-selection {
+    background:  #D0E0EB; /*change the color of the text selection background*/
+    color: #fff; /*change the color of the text selection*/
+}
+ 
+/*----------THEME BASICS----------*/
+
+body {
+    color: #888;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 180%;
+    margin: 0;
+    text-align: left;
+    background: #fdfdfd url("") center; /*change the color of the main background and add a background image between the quotations*/
+    background-attachment: fixed;
+    background-repeat: repeat;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    animation: fadein 2.5s;
+    -moz-animation: fadein 2.5s; /* Firefox */
+    -webkit-animation: fadein 2.5s; /* Safari and Chrome */
+    -o-animation: fadein  2.5s; /* Opera */
+}
+ 
+b,strong {
+    color:#A7DBD8; /*change bold color here in your about section*/
+    font-weight: 700;
+}
+ 
+i,em {
+    color:#A7DBD8; /*change italic color here in your about section*/
+}
+ 
+u {
+    color:#A7DBD8; /*change underline color here in your about section*/
+}
+ 
+hr {
+    width: 30%;
+    height: 1px;
+    background-color: #f6f6f6; /*change horizontal color here in your about section*/
+    color: #f6f6f6; /*change horizontal color here in your about section*/
+    border: 0px solid transparent;
+}
+ 
+small,sub,sup {
+    font-size: 10px;
+}
+ 
+a {
+    color: #A7DBD8; /*change link color here in your about section*/
+    text-decoration:none;
+    -webkit-transition: all 0.6s ease-in-out;
+    -moz-transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
+    transition: all 0.6s ease-in-out;
+}
+}
+ 
+a:hover {
+    color: #aaaaaa;  /*change link color when you hover here in your about section*/
+    -webkit-transition: all 0.6s ease-in-out;
+    -moz-transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
+    transition: all 0.6s ease-in-out;
+
+}
+
+#topbar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 30px 0 20px;
+}
+
+.pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    margin-bottom: 35px;
+    border: 5px solid #D0E0EB; /* change the color of the image border */
+}
+
+
+#maintitle {
+    font-family: 'Dosis', sans-serif;
+    font-size: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #000; /* change the color of the main title text */
+}
+
+#maintitle:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 5px;
+    margin-right: 20px;
+    width: 30%;
+    background-color: #D0E0EB; /* change the color of the bar left of the title */
+}
+
+#maintitle:after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 5px;
+    margin-left: 20px;
+    width: 30%;
+    background-color: #D0E0EB; /* change the color of the bar right of the title */
+}
+
+.description {
+    color: #888;  /* change the color of the description */
+    text-align: center;
+    width: 70%;
+    margin: 25px auto 0;
+}
+
+.homelinks {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.homelinks a {
+    display: inline-block;
+    margin: 10px;
+    -webkit-transition: 1.2s ease;
+    -moz-transition: 1.2s ease;
+    -o-transition: 1.2s ease;
+    transition: 1.2s ease;
+}
+
+.sf-home-o, .sf-receive-o, .sf-clock-3-o, .sf-diamond-o, .sf-heart-2-o, .sf-star-o, .sf-code-o {
+    padding: 15px;
+    font-size: 15px;
+    color: #fff;  /* change the color of the diamond link text */
+    background-color: #D0E0EB; /* change the color of the diamond link background */
+    display: inline-block;
+    height: 15px;
+    -webkit-transition: 1.2s ease;
+    -moz-transition: 1.2s ease;
+    -o-transition: 1.2s ease;
+    transition: 1.2s ease;
+   -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); 
+}
+
+.sf-home-o:hover, .sf-receive-o:hover, .sf-clock-3-o:hover, .sf-diamond-o:hover, .sf-heart-2-o:hover, .sf-star-o:hover, .sf-code-o:hover {
+    background-color: #fff; /* change the color of the diamond link background on hover */
+    color: #000; /* change the color of the diamond link text on hover */
+    -webkit-transition: 1.8s ease-in-out;
+    -moz-transition: 1.8s ease-in-out;
+    -o-transition: 1.8s ease-in-out;
+    transition: 1.8s ease-in-out;
+}
+
+.homelinks a:hover {
+    -webkit-transition: 1.8s ease-in-out;
+    -moz-transition: 1.8s ease-in-out;
+    -o-transition: 1.8s ease-in-out;
+    transition: 1.8s ease-in-out;
+    transform: rotate(360deg);
+}
+
+.container {
+    width: 1080px;
+    position: relative;
+    margin: 10px auto 50px;
+}
+
+.tags {
+  width: 300px;
+  margin: 30px;
+  text-align: justify;
+  transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -webkit-transition-duration: 1s;
+  -o-transition-duration: 1s;
+}
+
+.tag-title {
+    padding: 0 10px 0 0;
+    background-color: #fff; /* change the color of the tag title background */
+    color: #000; /* change the color of the tag title */
+    margin-bottom: -5px;
+    border: 1px solid #fafafa; /* change the color of the tag title border */
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.tag-title:before{
+    content:"\e159";
+    font-family:'saturnicons';
+    background-color: #D0E0EB; /* change the color of the tag icon background */
+    color: #fff;  /* change the color of the tag icon text */
+    padding: 16px;
+    margin-right: 10px;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+.tag-content {
+  padding: 0;
+}
+
+.tag-content li {
+  list-style-type: none;
+  margin-bottom: 5px;
+  border: 1px solid #fafafa; /* change the color of the border around tags */
+}
+
+.tag-content li a {
+  color: #888;  /* change the color of the tag links */
+  display: block;
+  background-color: #fff; /* change the color of the tag backgrounds */
+  padding: 10px;
+  border-left: 0px solid transparent;
+}
+
+.tag-content li a:hover {
+    border-left: 10px solid #D0E0EB; /* change the color of the border when tag is hovered */
+    color: #000;
+}
+</style>
+
+<!-----------Tooltips Script----------->
+<script src="http://static.tumblr.com/fuu6t9w/kh8ml0pl9/jquery-1.7.1.min.js"></script>
+<script src="http://static.tumblr.com/iuw14ew/VSQma1786/jquery.style-my-tooltips.js"></script>
+<script src="http://static.tumblr.com/pbhn8p5/uhVos7fkg/tooltips.js"></script>
+<!-----------Tooltips Script----------->
+
+<!--Masonry script-->
+<script src="http://static.tumblr.com/twte3d7/H8Glm663z/masonry.js"></script>
+<script type="text/javascript">
+$(window).load(function () {
+$('.container').masonry({
+itemSelector: ".tags",
+},
+function() { $('.container').masonry({ appendedContent: $(this) }); 
+});
+});
+</script>
+<!--Masonry script-->
+ 
+</head>
+
+<body>
+
+<div id="topbar"> <!-----------topbar----------->  
+<center><img class="pic" src="http://static.tumblr.com/uh2chis/O6Toxkyed/bnha-2.png"></center>
+<div id="maintitle">Foreword</div>  <!-----------page title-----------> 
+
+<div class="description"> <!-----------tag page description-----------> 
+
+This is where you can put the description of your tags page. Please make sure to keep it short and to the point :)
+
+</div> <!-----------tag page description-----------> 
+    <div class="homelinks"> <!-----------navigation links------------> 
+    <a href="/" title="home"><span class="sf-home-o"></span></a>
+    <a href="/ask" title="inbox"><span class="sf-receive-o"></span></a>
+    <a href="/archive" title="archive"><span class="sf-clock-3-o"></span></a>
+    <a href="/" title="link name here"><span class="sf-diamond-o"></span></a>
+    <a href="/" title="linke name here"><span class="sf-heart-2-o"></span></a>
+    <a href="/" title="linke name here"><span class="sf-star-o"></span></a>
+    <!-------------------DO NOT REMOVE THEME CREDIT!!!------------------->
+    <a href="http://sheathemes.tumblr.com" target="_blank" title="theme by sheathemes"><span class="sf-code-o"></span></a>
+    <!-------------------DO NOT REMOVE THEME CREDIT!!!------------------->
+</div> <!-----------navigation links------------> 
+</div>  <!-----------topbar----------->  
+
+
+<div class="container"> <!-----------main container-----------> 
+
+<!-----To add another tag block, just add one below and label accordingly
+
+  <div class="tags">
+    <div class="tag-title">tag title</div>
+    <ul class="tag-content">
+      <li><a href="/tagged/tag-name">tag one</a></li>
+      <li><a href="/tagged/tag-name">tag two</a></li>
+      <li><a href="/tagged/tag-name">tag three</a></li>
+      <li><a href="/tagged/tag-name">tag four</a></li>
+      <li><a href="/tagged/tag-name">tag five</a></li>
+    </ul>
+  </div>
+  
+  ----->
+  
+  <!-----------TAGS START------------> 
+  
+  <div class="tags">
+    <div class="tag-title">tage title</div>
+    <ul class="tag-content">
+      <li><a href="/tagged/tag-name">tag one</a></li>
+      <li><a href="/tagged/tag-name">tag two</a></li>
+      <li><a href="/tagged/tag-name">tag three</a></li>
+      <li><a href="/tagged/tag-name">tag four</a></li>
+      <li><a href="/tagged/tag-name">tag five</a></li>
+    </ul>
+  </div>
+
+  <div class="tags">
+    <div class="tag-title">tage title</div>
+    <ul class="tag-content">
+      <li><a href="/tagged/tag-name">tag one</a></li>
+      <li><a href="/tagged/tag-name">tag two</a></li>
+      <li><a href="/tagged/tag-name">tag three</a></li>
+      <li><a href="/tagged/tag-name">tag four</a></li>
+      <li><a href="/tagged/tag-name">tag five</a></li>
+      <li><a href="/tagged/tag-name">tag six</a></li>
+      <li><a href="/tagged/tag-name">tag seven</a></li>
+    </ul>
+  </div>
+
+
+  <div class="tags">
+      <div class="tag-title">tage title</div>
+      <ul class="tag-content">
+        <li><a href="/tagged/tag-name">tag one</a></li>
+        <li><a href="/tagged/tag-name">tag two</a></li>
+        <li><a href="/tagged/tag-name">tag three</a></li>
+      </ul>
+  </div>
+
+  <div class="tags">
+    <div class="tag-title">tage title</div>
+    <ul class="tag-content">
+      <li><a href="/tagged/tag-name">tag one</a></li>
+      <li><a href="/tagged/tag-name">tag two</a></li>
+      <li><a href="/tagged/tag-name">tag three</a></li>
+      <li><a href="/tagged/tag-name">tag four</a></li>
+      <li><a href="/tagged/tag-name">tag five</a></li>
+      <li><a href="/tagged/tag-name">tag six</a></li>
+      <li><a href="/tagged/tag-name">tag seven</a></li>
+      <li><a href="/tagged/tag-name">tag eight</a></li>
+      <li><a href="/tagged/tag-name">tag nine</a></li>
+      <li><a href="/tagged/tag-name">tag ten</a></li>
+    </ul>
+  </div>
+  
+    <div class="tags">
+    <div class="tag-title">tage title</div>
+    <ul class="tag-content">
+      <li><a href="/tagged/tag-name">tag one</a></li>
+      <li><a href="/tagged/tag-name">tag two</a></li>
+      <li><a href="/tagged/tag-name">tag three</a></li>
+      <li><a href="/tagged/tag-name">tag four</a></li>
+      <li><a href="/tagged/tag-name">tag five</a></li>
+    </ul>
+  </div>
+
+  
+    <div class="tags">
+    <div class="tag-title">tage title</div>
+    <ul class="tag-content">
+      <li><a href="/tagged/tag-name">tag one</a></li>
+      <li><a href="/tagged/tag-name">tag two</a></li>
+      <li><a href="/tagged/tag-name">tag three</a></li>
+    </ul>
+  </div>
+
+  <div class="tags">
+    <div class="tag-title">tage title</div>
+    <ul class="tag-content">
+      <li><a href="/tagged/tag-name">tag one</a></li>
+      <li><a href="/tagged/tag-name">tag two</a></li>
+      <li><a href="/tagged/tag-name">tag three</a></li>
+      <li><a href="/tagged/tag-name">tag four</a></li>
+      <li><a href="/tagged/tag-name">tag five</a></li>
+      <li><a href="/tagged/tag-name">tag six</a></li>
+      <li><a href="/tagged/tag-name">tag seven</a></li>
+      <li><a href="/tagged/tag-name">tag eight</a></li>
+    </ul>
+  </div>
+  
+      <div class="tags">
+    <div class="tag-title">tage title</div>
+    <ul class="tag-content">
+      <li><a href="/tagged/tag-name">tag one</a></li>
+      <li><a href="/tagged/tag-name">tag two</a></li>
+      <li><a href="/tagged/tag-name">tag three</a></li>
+      <li><a href="/tagged/tag-name">tag four</a></li>
+      <li><a href="/tagged/tag-name">tag five</a></li>
+    </ul>
+  </div>
+  
+    
+    <div class="tags">
+    <div class="tag-title">tage title</div>
+    <ul class="tag-content">
+      <li><a href="/tagged/tag-name">tag one</a></li>
+      <li><a href="/tagged/tag-name">tag two</a></li>
+      <li><a href="/tagged/tag-name">tag three</a></li>
+      <li><a href="/tagged/tag-name">tag four</a></li>
+      <li><a href="/tagged/tag-name">tag five</a></li>
+      <li><a href="/tagged/tag-name">tag six</a></li>
+      <li><a href="/tagged/tag-name">tag seven</a></li>
+    </ul>
+  </div>
+  
+    
+    <div class="tags">
+    <div class="tag-title">tage title</div>
+    <ul class="tag-content">
+      <li><a href="/tagged/tag-name">tag one</a></li>
+      <li><a href="/tagged/tag-name">tag two</a></li>
+      <li><a href="/tagged/tag-name">tag three</a></li>
+      <li><a href="/tagged/tag-name">tag four</a></li>
+      <li><a href="/tagged/tag-name">tag five</a></li>
+      <li><a href="/tagged/tag-name">tag six</a></li>
+      <li><a href="/tagged/tag-name">tag seven</a></li>
+    </ul>
+  </div>
+  
+    <div class="tags">
+    <div class="tag-title">tage title</div>
+    <ul class="tag-content">
+      <li><a href="/tagged/tag-name">tag one</a></li>
+      <li><a href="/tagged/tag-name">tag two</a></li>
+      <li><a href="/tagged/tag-name">tag three</a></li>
+      <li><a href="/tagged/tag-name">tag four</a></li>
+      <li><a href="/tagged/tag-name">tag five</a></li>
+      <li><a href="/tagged/tag-name">tag six</a></li>
+      <li><a href="/tagged/tag-name">tag seven</a></li>
+      <li><a href="/tagged/tag-name">tag eight</a></li>
+      <li><a href="/tagged/tag-name">tag nine</a></li>
+      <li><a href="/tagged/tag-name">tag ten</a></li>
+    </ul>
+  </div>
+  
+    <div class="tags">
+    <div class="tag-title">tage title</div>
+    <ul class="tag-content">
+      <li><a href="/tagged/tag-name">tag one</a></li>
+      <li><a href="/tagged/tag-name">tag two</a></li>
+      <li><a href="/tagged/tag-name">tag three</a></li>
+      <li><a href="/tagged/tag-name">tag four</a></li>
+      <li><a href="/tagged/tag-name">tag five</a></li>
+      <li><a href="/tagged/tag-name">tag six</a></li>
+      <li><a href="/tagged/tag-name">tag seven</a></li>
+      <li><a href="/tagged/tag-name">tag eight</a></li>
+      <li><a href="/tagged/tag-name">tag nine</a></li>
+      <li><a href="/tagged/tag-name">tag ten</a></li>
+    </ul>
+  </div>
+
+  <!-----------TAGS END------------> 
+    
+</div> <!-----------main container----------->  
+</body>
+</html> <!---------------------------END--------------------------->
